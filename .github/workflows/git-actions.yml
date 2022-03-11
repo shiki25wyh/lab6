@@ -1,16 +1,19 @@
 name: Python safety check
+
 on:
   push:
     branches:
       - main
+
 env:
   DEP_PATH: src/requirements.txt
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out main
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
 
       - name: Security vulnerabilities scan
-        uses: aufdenpunkt/python-safety-check@v2
+        uses: aufdenpunkt/python-safety-check@main
