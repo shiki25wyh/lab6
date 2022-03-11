@@ -19,11 +19,6 @@ jobs:
         uses: aufdenpunkt/python-safety-check@master
 
 
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
