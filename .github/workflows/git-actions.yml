@@ -15,5 +15,19 @@ jobs:
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
           HEROKU_APP_NAME: "comp7940lab05"  # Rename this to the app of your Heroku app.
         run: git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main  
-      - name: Security vulnerabilities scan
-        uses: aufdenpunkt/python-safety-check
+name: 'Python Safety Check'
+description: 'Helps to find known security vulnerabilities in your python application'
+author: aufdenpunkt
+inputs:
+  safety_args:
+    description: Optional Safety script parameters. (e.g. --ignore=1234 or -i 1234)
+    default: ''
+  scan_requirements_file_only:
+    description: Set true to scan required python packages without installing them.
+    default: 'false'
+branding:
+  icon: 'shield'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
